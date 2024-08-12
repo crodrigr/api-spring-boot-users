@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw  # Cambia esta contraseña por la que prefieras
+      MYSQL_DATABASE: db_backend_users       # (Opcional) Nombre de la base de datos a crear
+      MYSQL_USER: my_user               # (Opcional) Usuario adicional
+      MYSQL_PASSWORD: my_password       # (Opcional) Contraseña para el usuario adicional
+    ports:
+      - "3306:3306"                      # Expone el puerto 3306
+    volumes:
+      - mysql_data:/var/lib/mysql        # Persistencia de datos
+
+volumes:
+  mysql_data:
